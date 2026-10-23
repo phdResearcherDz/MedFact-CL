@@ -12,6 +12,10 @@ MedFact-CL protects a continually trained biomedical QA model against misinforma
 
 ## 1. Method overview
 
+<p align="center">
+  <img src="figures/CL_Process_global.png" alt="MedFact-CL overview" width="100%">
+</p>
+
 ```
  trusted documents ──► SPO extraction ──► UMLS normalization ──► embedding ──► FAISS evidence index (KG)
                                                                                      │
@@ -84,6 +88,7 @@ MedFact-CL/
 │       ├── train_ewc.py              train_medfact_replay.py
 │       ├── train_replay.py           train_medfact_lora.py
 │       ├── train_lora.py             train_baselines.py   (Isolated FT, O-LoRA, BiLoRA, iCaRL, Spectral Signatures)
+├── figures/                      # figures used in this README
 ├── data/                         # preprocessed data
 ├── results/                      # the results reported
 ├── requirements.txt
@@ -260,10 +265,16 @@ The fact-checking step also writes, under `data/<dataset>/FactCheckCache/`:
 
 ---
 
-## 8. Hardware and runtime
+## 8. Hardware and resources
 
-- **Continual learning (Flan-T5 XL).** One GPU with ≥ 40 GB of memory is recommended, or a 24 GB GPU for the LoRA variants. One clean run over the 12 BioASQ splits takes a few hours per seed.
-- **Fact-checking.** Steps 2, 4 and 5 need about 12 GB of GPU memory for `gemma3:12b` through Ollama. Their cost is dominated by one LLM call per sentence. All LLM outputs are cached, so interrupted runs resume where they stopped.
+| Resource | Specification |
+|---|---|
+| GPU | 2 × NVIDIA RTX 4060 Ti (16 GB each) |
+| CPU | 12-core AMD Ryzen |
+| RAM | 64 GB |
+| Frameworks | PyTorch • Transformers • LangChain • Ollama |
+| OS | Ubuntu 22.04 / Windows 11 |
+| Avg Runtime | ~1 hours per BioASQ experiment |
 
 ---
 
