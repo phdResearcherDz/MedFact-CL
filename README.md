@@ -125,7 +125,27 @@ ollama serve            # default host http://localhost:11434 (use --ollama_host
 
 ---
 
-## 4. Data
+### 4.0 Download
+
+The preprocessed datasets (clean splits and poisoned versions of BioASQ and PubMedQA) and the results optained are available on the [v1 release](https://github.com/phdResearcherDz/MedFact-CL/releases/tag/v1):
+
+| Archive | Size | Content | Link |
+|---|---|---|---|
+| `Data.zip` | 78 MB | `data/BioASQ2025/` and `data/PubMedQA/`: `baselines/` and `PoisonedData/` | [Download](https://github.com/phdResearcherDz/MedFact-CL/releases/download/v1/Data.zip) |
+| `Results.zip` | 87 MB | `Results_<Method>_FineTuning/<dataset>/…` | [Download](https://github.com/phdResearcherDz/MedFact-CL/releases/download/v1/Results.zip) |
+
+From the root of the repository:
+
+```bash
+wget https://github.com/phdResearcherDz/MedFact-CL/releases/download/v1/Data.zip
+wget https://github.com/phdResearcherDz/MedFact-CL/releases/download/v1/Results.zip
+unzip Data.zip        # creates data/
+unzip Results.zip     # creates the Results_<Method>_FineTuning/ folders
+```
+
+SHA-256 checksums:
+- `Data.zip`: `3bec94744cb89467e89ad60279c4d6ac5067254868b2aff2f114e6738dc8a510`
+- `Results.zip`: `444716cf0edefb6a735f84eb14b0a8d8887a7e0166806cc17fbb80d455eb2261`
 
 ### 4.1 Layout
 
@@ -254,7 +274,7 @@ The fact-checking step also writes, under `data/<dataset>/FactCheckCache/`:
 
 | Component | Value |
 |---|---|
-| Backbone | `google/flan-t5-xl` (3B); the paper also reports BioLinkBERT and Qwen2.5 |
+| Backbone | `google/flan-t5-xl` (3B); |
 | Learning rate / batch / weight decay / warmup | 2.787e-5 / 8 / 0.1657 / 0.1891 (selected with Optuna TPE) |
 | Epochs / early stopping | ≤ 20 per split / patience 3 on dev loss |
 | Margin loss | margin 0.20, weight 0.35 |
