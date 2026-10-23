@@ -1,0 +1,9 @@
+name: medfact-cl
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+# Then, inside the environment:
+#   pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu118
+#   pip install -r requirements.txt

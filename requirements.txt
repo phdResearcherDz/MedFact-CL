@@ -1,0 +1,26 @@
+# Versions of the environment used for the paper (Python 3.10, CUDA 11.8).
+# Install PyTorch first for your CUDA version, e.g.:
+#   pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu118
+torch==2.7.1
+transformers==4.57.0
+tokenizers==0.22.1
+safetensors==0.5.3
+huggingface-hub==0.34.1
+accelerate==1.10.0
+peft==0.16.0
+datasets==4.0.0
+sentencepiece>=0.2.0
+numpy==2.2.6
+pandas==2.3.1
+scipy==1.15.3
+scikit-learn==1.7.1
+tqdm==4.67.1
+
+# Fact-checking module
+pydantic==2.12.4
+ollama==0.6.1
+sentence-transformers==5.1.0
+faiss-cpu>=1.8.0
+spacy>=3.7,<3.8
+scispacy==0.5.5
+en_core_sci_sm @ https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_sm-0.5.4.tar.gz

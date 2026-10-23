@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+models/
+data/*/FactCheckCache/
+data/*/FactCheckedData/
+results/**/_last_checkpoint/
+results/**/_poisoned_snapshots/
+*.safetensors
+*.bin
+*.pt
