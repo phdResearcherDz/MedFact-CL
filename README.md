@@ -37,7 +37,7 @@ MedFact-CL protects a continually trained biomedical QA model against misinforma
 | Linearization | – | `(m + n : u) P (m + n : u)`, or `(m : u)` when the mention equals the canonical name, or `(m)` without a concept |
 | Embedding | `lightonai/modernbert-embed-large` | L2-normalized |
 | Evidence index | FAISS exact index (`IndexFlatL2`) | Each entry stores the linearized triple and its trusted source sentence |
-| Retrieval | Triple queries + source-sentence queries | Cosine similarity ≥ 0.5 (squared L2 ≤ 1 on unit vectors), top-10 |
+| Retrieval | Triple queries + source-sentence queries | Cosine similarity ≥ 0.75 (squared L2 ≤ 1 on unit vectors), top-10 |
 | Claim checking | PubMedBERT cross-encoder, trained with [Biomedical-Fact-Checking-framework](https://github.com/phdResearcherDz/Biomedical-Fact-Checking-framework) | 3 classes (SUPPORTED, REFUTED, NOT ENOUGH INFO). |
 | Fusion | τ<sub>d</sub> = Σ τ<sub>i</sub> w(y<sub>i</sub>) / Σ τ<sub>i</sub>, w ∈ {+1, 0, −1}; τ<sub>x</sub> = (τ<sub>d</sub> + 1) / 2 | No claim, or NEI-only claims, give the neutral τ<sub>x</sub> = 0.5 |
 
